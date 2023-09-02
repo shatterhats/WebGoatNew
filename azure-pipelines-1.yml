@@ -1,0 +1,21 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: CmdLine@2
+  displayName: 'Custom git clone'
+  inputs:
+    script: |
+      echo 'Cloning into sources folder at: $(Build.SourcesDirectory)'
+      git clone https://$(external-git-user):$(external-git-password)@git.myserver.com/my-repository/my-app.git --progress --branch dev --single-branch --depth=1 $(Build.SourcesDirectory)
+      exit
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'

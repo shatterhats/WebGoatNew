@@ -14,3 +14,4 @@ jobs:
   - script: |
       echo "Cloning the GitHub repository..."
       git clone https://github.com/shatterhats/WebGoatNew.git
+      git checkout azure-pipelines

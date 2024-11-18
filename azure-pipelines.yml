@@ -4,7 +4,7 @@ trigger:
       - main
 
 jobs:
-- job: CloneAndPush
+- job: CloneAndScan
   pool:
     vmImage: 'ubuntu-latest'
 
